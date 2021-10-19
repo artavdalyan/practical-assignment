@@ -7,7 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+<style>
+  .spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="spinner">
+      <img src="assets/icons/spinner.svg" alt="spinner">
+    </div>
+  </app-root>
 </body>
 </html>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "13c52575-d7ab-46ae-869f-7e84d830d216",
+    "picture": "https://placehold.it/32x32",
+    "age": 23,
+    "name": "Bird Ramsey",
+    "gender": "male",
+    "email": "birdramsey@nimon.com"
+  },
+  {
+    "id": "3660df49-96b3-4e3d-80c7-16349ee4dc34",
+    "picture": "https://placehold.it/32x32",
+    "age": 31,
+    "name": "Lillian Burgess",
+    "gender": "female",
+    "email": "lillianburgess@luxuria.com"
+  },
+  {
+    "id": "13c52575-d7ab-46ae-869f-7e84d830d216",
+    "picture": "https://placehold.it/32x32",
+    "age": 34,
+    "name": "Kristie Cole",
+    "gender": "female",
+    "email": "kristiecole@quadeebo.com"
+  },
+  {
+    "id": "a4587cae-d245-40dd-a881-045dad537c66",
+    "picture": "https://placehold.it/32x32",
+    "age": 30,
+    "name": "Leonor Cross",
+    "gender": "female",
+    "email": "leonorcross@gronk.com"
+  },
+  {
+    "id": "5943a607-b54c-4e5f-bf7b-304e065d79fa",
+    "picture": "https://placehold.it/32x32",
+    "age": 28,
+    "name": "Marsh Mccall",
+    "gender": "male",
+    "email": "marshmccall@ultrimax.com"
+  }
+]
