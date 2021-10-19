@@ -21,7 +21,6 @@ export class UserService {
       ...user,
       posts: postsByUserId[user.id],
     }));
-    debugger;
   }
 
   getUsers(): Observable<IUser[]> {
