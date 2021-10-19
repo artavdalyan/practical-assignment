@@ -1,0 +1,14 @@
+**/*.js
+/dist
+
+# IDE
+.DS_Store
+.vscode
+.idea
+
+# Dependency directories
+/node_modules
+
+# Other
+.tmp
+debug-path
