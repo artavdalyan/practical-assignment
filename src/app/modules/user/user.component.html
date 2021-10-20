@@ -1,6 +1,6 @@
 <h2>{{user?.name}} posts</h2>
 
-<table id="table">
+<table #tableRef id="table">
   <thead>
   <tr>
     <th>Title</th>
@@ -15,10 +15,14 @@
   </tbody>
 </table>
 
-<canvas id="canvas" style="border:2px solid black;">
-
+<canvas [height]="tableRef.clientHeight"
+        [hidden]="true"
+        [width]="tableRef.clientWidth"
+        id="canvas">
 </canvas>
+
+
 <div class="actions">
-  <button type="button" (click)="exportAsCsv()">Export as csv</button>
-  <button type="button" (click)="exportAsImage()">Export as Image</button>
+  <button (click)="exportAsCsv()" type="button">Export as csv</button>
+  <button (click)="exportAsImage()" type="button">Export as Image</button>
 </div>

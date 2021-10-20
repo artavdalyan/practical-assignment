@@ -1,39 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { IUser } from "../../interfaces";
-import { CsvService } from "../../services/csv.service";
-import { UserService } from "../../services/user.service";
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { IUser } from '../../interfaces';
+import { ExportService } from '../../services/export.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent {
+  @ViewChild('tableRef', { static: true }) tableRef: ElementRef | undefined;
+
   user: IUser | undefined;
 
-  constructor(
-    private userService: UserService,
-    private csvService: CsvService,
-    private activateRoute: ActivatedRoute,
-    ) {
-     const userId = this.activateRoute.snapshot.params['id'];
-     if(userId) {
-       this.user = this.userService.getUser(userId)
-     }
-      debugger;
-  }
+  constructor(private userService: UserService, private csvService: ExportService, private activateRoute: ActivatedRoute) {
+    const userId = this.activateRoute.snapshot.params['id'];
 
-  exportAsImage() {
-    if(this.user){
-      this.csvService.domToCanvas(document.getElementById('table')!.innerHTML)
+    if (userId) {
+      this.user = this.userService.getUser(userId);
     }
   }
 
-  exportAsCsv() {
-    if(this.user){
-      this.csvService.exportAsCvs(`${this.user.name} posts`,
-        this.user.posts.map(({title, body: message})=> ({title, message})));
+  exportAsImage(): void {
+    if (this.user) {
+      this.csvService.exportAsImage(`${this.user.name} posts`, this.tableRef?.nativeElement.innerHTML);
+    }
+  }
+
+  exportAsCsv(): void {
+    if (this.user) {
+      this.csvService.exportAsCvs(
+        `${this.user.name} posts`,
+        this.user.posts.map(({ title, body: message }) => ({ title, message })),
+      );
     }
   }
 }

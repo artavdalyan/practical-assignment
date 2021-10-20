@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+$table-hover-color: rgba(114, 114, 113, 0.2);
 
 
 body{
@@ -34,6 +35,6 @@ tr:nth-child(even) {
   background-color: #eff2f5;
 }
 
-tr:not(:first-child):hover {
-  background-color: rgba(114, 114, 113, 0.2);
+tbody tr:hover {
+  background-color :$table-hover-color;
 }

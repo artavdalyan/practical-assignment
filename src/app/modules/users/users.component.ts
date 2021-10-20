@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { IUser } from '../../interfaces';
 import { UserService } from '../../services/user.service';
@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersComponent {
   users: IUser[];
