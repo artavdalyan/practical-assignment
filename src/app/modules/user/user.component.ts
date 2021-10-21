@@ -16,7 +16,9 @@ export class UserComponent {
 
   user: IUser | undefined;
 
-  constructor(private userService: UserService, private csvService: ExportService, private activateRoute: ActivatedRoute) {
+  constructor(private userService: UserService,
+              private exportService: ExportService,
+              private activateRoute: ActivatedRoute) {
     const userId = this.activateRoute.snapshot.params['id'];
 
     if (userId) {
@@ -26,13 +28,13 @@ export class UserComponent {
 
   exportAsImage(): void {
     if (this.user) {
-      this.csvService.exportAsImage(`${this.user.name} posts`, this.tableRef?.nativeElement.innerHTML);
+      this.exportService.exportAsImage(`${this.user.name} posts`, this.tableRef?.nativeElement.innerHTML);
     }
   }
 
   exportAsCsv(): void {
     if (this.user) {
-      this.csvService.exportAsCvs(
+      this.exportService.exportAsCvs(
         `${this.user.name} posts`,
         this.user.posts.map(({ title, body: message }) => ({ title, message })),
       );

@@ -65,7 +65,7 @@ export class ExportService {
           ctx.drawImage(img, 0, 0);
         }
 
-        const url = canvas.toDataURL();
+        const url = canvas.toDataURL('image/jpg', 1);
 
         this.downloadFile(`${fileName}.jpg`, url);
       };
@@ -73,7 +73,7 @@ export class ExportService {
     }
   }
 
-  downloadFile(fileName: string, url: string): void {
+  private downloadFile(fileName: string, url: string): void {
     const a = this.document.createElement('a');
     a.href = url;
     a.download = fileName;
