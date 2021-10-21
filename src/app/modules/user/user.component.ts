@@ -13,6 +13,7 @@ import { UserService } from '../../services/user.service';
 })
 export class UserComponent {
   @ViewChild('tableRef', { static: true }) tableRef: ElementRef | undefined;
+  @ViewChild('canvasRef', { static: true }) canvasRef: ElementRef | undefined;
 
   user: IUser | undefined;
 
@@ -28,7 +29,11 @@ export class UserComponent {
 
   exportAsImage(): void {
     if (this.user) {
-      this.exportService.exportAsImage(`${this.user.name} posts`, this.tableRef?.nativeElement.innerHTML);
+      this.exportService.exportAsImage(
+        `${this.user.name} posts`,
+        this.tableRef?.nativeElement.innerHTML,
+        this.canvasRef?.nativeElement
+      );
     }
   }
 

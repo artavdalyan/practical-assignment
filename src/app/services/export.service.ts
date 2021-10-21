@@ -51,9 +51,7 @@ export class ExportService {
     this.downloadFile(`${fileName}.csv`, url);
   }
 
-  exportAsImage(fileName: string, html: string): void {
-    const canvas = this.document.getElementById('canvas') as HTMLCanvasElement;
-
+  exportAsImage(fileName: string, html: string, canvas:HTMLCanvasElement ): void {
     if (canvas) {
       const ctx = canvas.getContext('2d');
 
